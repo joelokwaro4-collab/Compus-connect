@@ -7,90 +7,82 @@
 ---
 
 ## 📖 1. Project Mission & Value Proposition
-[cite_start]Campus Connect is engineered to facilitate communication, commerce, and campus life integration across Kenyan institutions[cite: 3]. [cite_start]By centralizing essential services—from academic resources to safety tools—the platform minimizes time-to-action for the modern student ("Comrade")[cite: 3, 35].
+Campus Connect is a centralized digital ecosystem engineered for Kenyan university students to facilitate seamless communication, commerce, and campus life integration. By consolidating essential services into one platform, we aim to minimize the daily hurdles faced by students across the country.
 
 ---
 
-## 🏛 2. System Architecture & Tech Stack
-The platform utilizes a **Modular Monolith** architecture designed for low-latency performance in mobile-first environments.
+## 🏛 2. System Architecture
+The platform utilizes a **Modular Service-Oriented Architecture** designed for high availability and low-latency performance in mobile-first environments.
 
-* **Frontend:** React.js / Next.js (Progressive Web App)
-* **Backend:** Node.js & Express
-* **Database:** MongoDB Atlas (NoSQL for flexible listing schemas)
-* [cite_start]**Payments:** M-Pesa Daraja API Integration [cite: 52]
-* [cite_start]**Safety:** WebSocket-based Emergency SOS system [cite: 50]
+
+
+* **Frontend:** React.js / Next.js (Optimized for PWA performance).
+* **Backend:** Node.js & Express (Scalable API Gateway).
+* **Database:** MongoDB Atlas (Flexible NoSQL schemas for diverse data).
+* **Payments:** M-Pesa Daraja API Integration (Lipa na M-Pesa).
+* **Safety:** Real-time WebSocket signaling for emergency triggers.
 
 ---
 
-## 📋 3. High-Impact Feature Matrix
-The system is divided into five critical service verticals designed to address specific student needs.
+## 📋 3. High-Impact Feature Roadmap
 
 ### **A. The "Comrade Market" & Commerce**
-<table>
-  <tr>
-    <th>Feature</th>
-    <th>Description</th>
-    <th>Implementation</th>
-  </tr>
-  <tr>
-    <td><b>Book Swap/Resale</b></td>
-    <td>A dedicated marketplace for used textbooks and revision materials[cite: 7, 37].</td>
-    <td>CRUD operations with image hosting.</td>
-  </tr>
-  <tr>
-    <td><b>Hostel Finder</b></td>
-    <td>Peer-reviewed directory of private hostels with pricing and security ratings[cite: 19, 38].</td>
-    <td>Rating system & Map integration.</td>
-  </tr>
-  <tr>
-    <td><b>Side-Hustle Hub</b></td>
-    <td>Directory for student service businesses like coding, laundry, and photography[cite: 39].</td>
-    <td>Service provider profiles.</td>
-  </tr>
-    <tr>
-    <td><b>Dining Guide</b></td>
-    <td>Real-time accessibility info for Mess, STC, and dining areas[cite: 40].</td>
-    <td>Location-based services.</td>
-  </tr>
-</table>
+| Feature | Description | Implementation |
+| :--- | :--- | :--- |
+| **Book Swap/Resale** | A dedicated hub to buy and sell textbooks and revision materials. | CRUD + Cloudinary |
+| **Hostel Finder** | Peer-reviewed directory of private hostels with pricing and security ratings. | Ratings + Maps API |
+| **Side-Hustle Hub** | A portal for student services like coding, laundry, and photography. | Service Profiles |
+| **Dining Guide** | Instant access to information on Mess, STC, and other dining areas. | Location Services |
 
 ### **B. Academic & Career Synergy**
-* [cite_start]**Resource Library:** A cloud-based folder system organized by course code for sharing past papers and notes[cite: 7, 42].
-* [cite_start]**Virtual Tutoring Marketplace:** A platform where senior students offer paid tutoring sessions[cite: 8, 45, 47].
-* [cite_start]**Internship/Job Board:** Scraped and university-specific opportunities for Kenyan undergrads[cite: 12, 44].
-* [cite_start]**Study Group Finder:** Matching students by course, year, and academic needs[cite: 6].
-* [cite_start]**Inter-University Skill Matching:** Professional project showcasing and collaboration tools[cite: 9, 13, 43].
+* **Resource Library:** Cloud-based folder system organized by course code for sharing past papers and notes.
+* **Virtual Tutoring:** A marketplace where senior students offer paid tutoring sessions.
+* **Study Group Finder:** Matching students by course, year, and specific academic needs.
+* **Internship Alerts:** A curated list of attachments and graduate programs for Kenyan undergrads.
+* **Skill Exchange:** A "teach-to-learn" platform for peer-to-peer skill sharing.
 
 ### **C. Safety, Wellness & Governance**
-* [cite_start]**Emergency SOS:** A high-priority button alerting campus security or student volunteers in emergencies[cite: 32, 50].
-* [cite_start]**Anonymous "Sema" Portal:** A secure space for mental health discussions and reporting grievances anonymously[cite: 49].
-* [cite_start]**Election & Polling:** Digital platforms for student leadership voting and Union communication[cite: 23, 26].
-* [cite_start]**Issue Reporting:** A system to track facility problems and provide administrative feedback[cite: 24, 25].
+* **Emergency SOS:** A one-tap button that alerts campus security or nearby student volunteers.
+* **Anonymous "Sema" Portal:** A secure space for mental health discussions and reporting grievances.
+* **Issue Reporting:** A tracker for campus facility problems and administrative feedback.
+* **Election Portal:** A digital platform for student leadership voting and official polling.
 
-### **D. Campus Life & Engagement**
-* [cite_start]**Event Ticketing:** Integrated M-Pesa ticketing for sports, plays, and "inter-uni" bashes[cite: 17, 51, 52].
-* [cite_start]**Lost & Found:** A portal featuring a photo verification system for recovered items[cite: 18].
-* [cite_start]**Student Deals:** Exclusive local business discounts for verified students[cite: 21].
+### **D. Campus Life Enhancement**
+* **Event Aggregator:** Centralized ticketing for sports, plays, and "inter-uni" bashes via M-Pesa.
+* **Lost & Found:** A digital portal with a photo verification system for recovered items.
+* **Campus Navigation:** Interactive maps for building locations and essential campus services.
+* **Student Deals:** Exclusive discounts from local businesses for verified students.
 
 ---
 
 ## 🛡 4. Security, Trust & Verification
-To ensure a safe environment, the following protocols are mandatory:
-* [cite_start]**Institutional Verification:** Mandatory university email verification for all account creations[cite: 29].
-* [cite_start]**Granular Privacy:** Student-controlled data privacy settings for personal information[cite: 33].
-* [cite_start]**Community Moderation:** Student moderators assigned from each respective institution[cite: 31].
-* [cite_start]**Rating Integrity:** Comprehensive rating systems for all business advertisers and service providers[cite: 30].
+To maintain a professional and safe environment, the platform implements:
+* **University Email Verification:** Mandatory for all account creations to ensure authenticity.
+* **Moderation Framework:** Student moderators assigned from each respective institution.
+* **Data Privacy Controls:** Granular user control over personal information and visibility.
+* **Reputation System:** Rating systems for all business advertisers and service providers.
 
 ---
 
 ## 🚀 5. Getting Started
 
 ### **Installation**
-1. **Clone the Source:**
-   ```bash
-   git clone [https://github.com/vertigo0628/CampusConnect.git](https://github.com/vertigo0628/CampusConnect.git)
-   cd CampusConnect
+1.  **Clone the Source:**
+    ```bash
+    git clone [https://github.com/vertigo0628/CampusConnect.git](https://github.com/vertigo0628/CampusConnect.git)
+    cd CampusConnect
+    ```
+2.  **Environment Configuration:**
+    Create a `.env` file and input your <kbd>MONGO_URI</kbd> and <kbd>MPESA_DARAJA_CREDENTIALS</kbd>.
+3.  **Boot the System:**
+    ```bash
+    npm install && npm run dev
+    ```
 
+### **Contributing**
+We welcome all student developers. Please follow the **Fork-and-Pull** model. All feature additions must align with the security protocols outlined in Section 4.
 
-
-   
+---
+<div align="center">
+  <sub>Developed for the Kenyan Student Community. &copy; 2026 Campus Connect Kenya.</sub>
+</div>
