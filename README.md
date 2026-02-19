@@ -7,7 +7,7 @@
 ---
 
 ## 📖 1. Project Mission & Value Proposition
-Campus Connect is a centralized digital ecosystem engineered for Kenyan university students to facilitate seamless communication, commerce, and campus life integration. By consolidating essential services into one platform, we aim to minimize the daily hurdles faced by students across the country.
+Campus Connect is the one platform for everything in campus — trade textbooks, find hostels, join study groups, access M-Pesa payments, and stay safe with emergency SOS. Built by students, for students.
 
 ---
 

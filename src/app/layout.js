@@ -21,7 +21,7 @@ export const viewport = {
 export const metadata = {
   title: "Campus Connect Kenya",
   description:
-    "A centralized digital ecosystem for Kenyan university students — communication, commerce, safety, and campus life, all in one place.",
+    "One platform for everything in campus — trade textbooks, find hostels, join study groups, access M-Pesa payments, and stay safe with emergency SOS. Built by students, for students.",
   keywords: [
     "campus",
     "university",

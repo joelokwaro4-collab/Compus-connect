@@ -3,7 +3,7 @@ export default function manifest() {
         name: "Campus Connect Kenya",
         short_name: "CampusConnect",
         description:
-            "A centralized digital ecosystem for Kenyan university students — communication, commerce, safety, and campus life.",
+            "One platform for everything in campus — trade textbooks, find hostels, join study groups, access M-Pesa payments, and stay safe with emergency SOS.",
         start_url: "/",
         display: "standalone",
         background_color: "#0a0e17",

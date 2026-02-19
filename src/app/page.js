@@ -1,7 +1,14 @@
+"use client";
+
+import { useState } from "react";
 import styles from "./page.module.css";
 import Logo from "@/components/Logo";
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <div className={styles.wrapper}>
       {/* Ambient background orbs */}
@@ -10,7 +17,7 @@ export default function Home() {
       <div className={styles.ambientOrb} />
 
       {/* Navigation */}
-      <nav className={styles.nav}>
+      <nav className={`${styles.nav} ${isMenuOpen ? styles.navActive : ""}`}>
         <div className={styles.navBrand}>
           <Logo size={36} />
           <div className={styles.navBrandText}>
@@ -18,9 +25,21 @@ export default function Home() {
             <span className={styles.navSubtitle}>Kenya</span>
           </div>
         </div>
-        <div className={styles.navLinks}>
-          <a href="#features" className={styles.navLink}>Features</a>
-          <a href="#about" className={styles.navLink}>About</a>
+
+        {/* Hamburger Menu Button */}
+        <button
+          className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerActive : ""}`}
+          onClick={toggleMenu}
+          aria-label="Toggle Menu"
+        >
+          <span className={styles.hamburgerBar}></span>
+          <span className={styles.hamburgerBar}></span>
+          <span className={styles.hamburgerBar}></span>
+        </button>
+
+        <div className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksOpen : ""}`}>
+          <a href="#features" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>Features</a>
+          <a href="#about" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>About</a>
           <button className={styles.navCta}>Get Started</button>
         </div>
       </nav>
@@ -38,12 +57,12 @@ export default function Home() {
           </div>
 
           <h1 className={styles.heroTitle}>
-            Your Campus,{" "}
+            Your Campus {" "}
             <span className={styles.heroTitleGradient}>Fully Connected.</span>
           </h1>
 
           <p className={styles.heroDescription}>
-            One platform for everything campus — trade textbooks, find hostels,
+            One platform for everything in campus — trade textbooks, find hostels,
             join study groups, access M-Pesa payments, and stay safe with
             emergency SOS. Built by students, for students.
           </p>
