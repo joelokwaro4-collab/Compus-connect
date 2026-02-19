@@ -58,7 +58,7 @@ export default function Home() {
 
           <h1 className={styles.heroTitle}>
             Your Campus {" "}
-            <span className={styles.heroTitleGradient}>Fully Connected.</span>
+            <span className={styles.heroTitleGradient}>Your Network.</span>
           </h1>
 
           <p className={styles.heroDescription}>
