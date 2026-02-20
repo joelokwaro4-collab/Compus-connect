@@ -44,12 +44,16 @@ export const metadata = {
   },
 };
 
+import { AuthProvider } from "@/context/AuthContext";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ServiceWorkerRegistrar />
-        {children}
+        <AuthProvider>
+          <ServiceWorkerRegistrar />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

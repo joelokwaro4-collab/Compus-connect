@@ -131,6 +131,26 @@
   box-shadow: 0 4px 20px rgba(0, 102, 51, 0.45);
 }
 
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--primary);
+}
+
+.welcomeText {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
 /* ===== Hamburger Menu ===== */
 .hamburger {
   display: none;

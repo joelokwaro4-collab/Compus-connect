@@ -3,9 +3,11 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 import Logo from "@/components/Logo";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, signInWithGoogle, logout } = useAuth();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -40,7 +42,15 @@ export default function Home() {
         <div className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksOpen : ""}`}>
           <a href="#features" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>Features</a>
           <a href="#about" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>About</a>
-          <button className={styles.navCta}>Get Started</button>
+
+          {user ? (
+            <div className={styles.userProfile}>
+              <img src={user.photoURL} alt={user.displayName} className={styles.userAvatar} />
+              <button className={styles.navCta} onClick={logout}>Logout</button>
+            </div>
+          ) : (
+            <button className={styles.navCta} onClick={signInWithGoogle}>Get Started</button>
+          )}
         </div>
       </nav>
 
@@ -68,8 +78,14 @@ export default function Home() {
           </p>
 
           <div className={styles.heroCtas}>
-            <button className={styles.btnPrimary}>Join the Waitlist</button>
-            <button className={styles.btnSecondary}>Learn More</button>
+            {user ? (
+              <span className={styles.welcomeText}>Welcome back, {user.displayName}!</span>
+            ) : (
+              <>
+                <button className={styles.btnPrimary} onClick={signInWithGoogle}>Join the Waitlist</button>
+                <button className={styles.btnSecondary}>Learn More</button>
+              </>
+            )}
           </div>
         </div>
       </main>
