@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import styles from "./page.module.css";
 import Logo from "@/components/Logo";
@@ -7,7 +8,7 @@ import { useAuth } from "@/context/AuthContext";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, signInWithGoogle, logout } = useAuth();
+  const { user, logout } = useAuth();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -41,7 +42,6 @@ export default function Home() {
 
         <div className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksOpen : ""}`}>
           <a href="#features" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>Features</a>
-          <a href="#about" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>About</a>
 
           {user ? (
             <div className={styles.userProfile}>
@@ -49,7 +49,7 @@ export default function Home() {
               <button className={styles.navCta} onClick={logout}>Logout</button>
             </div>
           ) : (
-            <button className={styles.navCta} onClick={signInWithGoogle}>Get Started</button>
+            <Link href="/signup" className={styles.navCta}>Get Started</Link>
           )}
         </div>
       </nav>
@@ -82,7 +82,7 @@ export default function Home() {
               <span className={styles.welcomeText}>Welcome back, {user.displayName}!</span>
             ) : (
               <>
-                <button className={styles.btnPrimary} onClick={signInWithGoogle}>Join the Waitlist</button>
+                <Link href="/signup" className={styles.btnPrimary}>Join the Waitlist</Link>
                 <button className={styles.btnSecondary}>Learn More</button>
               </>
             )}
@@ -122,25 +122,6 @@ export default function Home() {
           <p className={styles.featureDesc}>
             Events, lost & found, campus maps, and exclusive student deals.
           </p>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className={styles.about}>
-        <h2 className={styles.sectionTitle}>Meet the Team</h2>
-        <p className={styles.sectionSubtitle}>
-          We are a group of 9 dedicated students working to build the ultimate
-          digital ecosystem for Kenyan universities.
-        </p>
-
-        <div className={styles.teamGrid}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((member) => (
-            <div key={member} className={styles.teamMember}>
-              <div className={styles.memberAvatar}>👤</div>
-              <h4 className={styles.memberName}>Team Member {member}</h4>
-              <p className={styles.memberRole}>Developer / Designer</p>
-            </div>
-          ))}
         </div>
       </section>
 
