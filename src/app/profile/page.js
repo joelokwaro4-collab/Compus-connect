@@ -74,8 +74,8 @@ export default function Profile() {
         const file = e.target.files[0];
         if (!file) return;
 
-        if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-            alert("Please add your Supabase credentials to .env.local to enable uploads!");
+        if (!supabase) {
+            alert("Supabase is not configured! Please add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to your environment variables.");
             return;
         }
 
