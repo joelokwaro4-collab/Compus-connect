@@ -5,10 +5,12 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import Logo from "@/components/Logo";
+import LogoutModal from "@/components/LogoutModal";
 import { useAuth } from "@/context/AuthContext";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const { user, logout } = useAuth();
 
   const router = useRouter();
@@ -65,7 +67,7 @@ export default function Home() {
               <Link href="/profile">
                 <img src={user.photoURL || "https://ui-avatars.com/api/?name=" + user.displayName} alt={user.displayName} className={styles.userAvatar} />
               </Link>
-              <button className={styles.navCta} onClick={logout}>Logout</button>
+              <button className={styles.navCta} onClick={() => setIsLogoutModalOpen(true)}>Logout</button>
             </div>
           ) : (
             <Link href="/signup" className={styles.navCta} onClick={() => setIsMenuOpen(false)}>Get Started</Link>
@@ -76,6 +78,16 @@ export default function Home() {
           )}
         </div>
       </nav>
+
+      {/* Logout Confirmation Modal */}
+      <LogoutModal
+        isOpen={isLogoutModalOpen}
+        onClose={() => setIsLogoutModalOpen(false)}
+        onConfirm={() => {
+          logout();
+          setIsLogoutModalOpen(false);
+        }}
+      />
 
       {/* Hero Section */}
       <main className={styles.hero}>

@@ -13,6 +13,7 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
         if (user && !loading) {
@@ -23,10 +24,17 @@ export default function Login() {
     const handleEmailSignin = async (e) => {
         e.preventDefault();
         setError("");
+        setIsSubmitting(true);
         try {
             await signInWithEmail(email, password);
         } catch (err) {
-            setError(err.message);
+            let message = "An error occurred. Please try again.";
+            if (err.code === 'auth/invalid-credential') message = "Invalid email or password.";
+            if (err.code === 'auth/user-not-found') message = "No account found with this email.";
+            if (err.code === 'auth/wrong-password') message = "Incorrect password.";
+            setError(message);
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -82,7 +90,12 @@ export default function Login() {
                             placeholder="••••••••"
                         />
                     </div>
-                    <button type="submit" className={styles.btnPrimary} style={{ width: '100%', marginTop: '16px' }}>
+                    <button
+                        type="submit"
+                        className={`${styles.btnPrimary} ${isSubmitting ? styles.btnLoading : ""}`}
+                        style={{ width: '100%', marginTop: '16px' }}
+                        disabled={isSubmitting}
+                    >
                         Log In
                     </button>
                 </form>
@@ -93,7 +106,8 @@ export default function Login() {
 
                 <button
                     onClick={signInWithGoogle}
-                    className={styles.googleBtn}
+                    className={`${styles.googleBtn} ${isSubmitting ? styles.btnLoading : ""}`}
+                    disabled={isSubmitting}
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />

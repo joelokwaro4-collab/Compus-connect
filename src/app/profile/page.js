@@ -8,10 +8,12 @@ import { supabase } from "@/lib/supabase";
 import { doc, getDoc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import styles from "./profile.module.css";
 import Logo from "@/components/Logo";
+import LogoutModal from "@/components/LogoutModal";
 import Link from "next/link";
 
 export default function Profile() {
     const { user, loading: authLoading, logout } = useAuth();
+    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
     const router = useRouter();
     const [profile, setProfile] = useState({
         displayName: "",
@@ -131,9 +133,19 @@ export default function Profile() {
                 </Link>
                 <div style={{ display: "flex", gap: "12px" }}>
                     <Link href="/" style={{ padding: "8px 16px", borderRadius: "100px", color: "white", textDecoration: "none", fontSize: "0.9rem" }}>Home</Link>
-                    <button onClick={logout} style={{ background: "transparent", border: "1px solid var(--border)", color: "white", padding: "8px 16px", borderRadius: "100px", cursor: "pointer" }}>Logout</button>
+                    <button onClick={() => setIsLogoutModalOpen(true)} style={{ background: "transparent", border: "1px solid var(--border)", color: "white", padding: "8px 16px", borderRadius: "100px", cursor: "pointer" }}>Logout</button>
                 </div>
             </nav>
+
+            {/* Logout Confirmation Modal */}
+            <LogoutModal
+                isOpen={isLogoutModalOpen}
+                onClose={() => setIsLogoutModalOpen(false)}
+                onConfirm={() => {
+                    logout();
+                    setIsLogoutModalOpen(false);
+                }}
+            />
 
             <header className={styles.header}>
                 <div className={styles.avatarSection}>
