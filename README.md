@@ -77,8 +77,12 @@ To maintain a professional and safe environment, the platform implements:
     Create a `.env` file and input the following keys:
     * <kbd>SUPABASE_URL</kbd> — Your Supabase project URL.
     * <kbd>SUPABASE_ANON_KEY</kbd> — Your Supabase anonymous/public key.
-    * <kbd>FIREBASE_API_KEY</kbd> — Your Firebase project API key.
-    * <kbd>FIREBASE_AUTH_DOMAIN</kbd> — Your Firebase Auth domain.
+    * <kbd>NEXT_PUBLIC_FIREBASE_API_KEY</kbd> — Your Firebase API key.
+    * <kbd>NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN</kbd> — Your Firebase Auth domain.
+    * <kbd>NEXT_PUBLIC_FIREBASE_PROJECT_ID</kbd> — Your Firebase Project ID.
+    * <kbd>NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET</kbd> — Your Firebase Storage Bucket.
+    * <kbd>NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID</kbd> — Your Firebase Messaging Sender ID.
+    * <kbd>NEXT_PUBLIC_FIREBASE_APP_ID</kbd> — Your Firebase App ID.
     * <kbd>MPESA_DARAJA_CREDENTIALS</kbd> — Your M-Pesa Daraja API credentials.
 3.  **Boot the System:**
     ```bash
