@@ -41,7 +41,18 @@ export default function Home() {
         </button>
 
         <div className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksOpen : ""}`}>
+          <a href="#features" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>Features</a>
 
+          {user ? (
+            <div className={styles.userProfile}>
+              <Link href="/profile">
+                <img src={user.photoURL || "https://ui-avatars.com/api/?name=" + user.displayName} alt={user.displayName} className={styles.userAvatar} />
+              </Link>
+              <button className={styles.navCta} onClick={logout}>Logout</button>
+            </div>
+          ) : (
+            <Link href="/signup" className={styles.navCta} onClick={() => setIsMenuOpen(false)}>Get Started</Link>
+          )}
         </div>
       </nav>
 
