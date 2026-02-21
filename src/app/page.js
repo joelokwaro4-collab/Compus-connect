@@ -41,16 +41,7 @@ export default function Home() {
         </button>
 
         <div className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksOpen : ""}`}>
-          <a href="#features" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>Features</a>
 
-          {user ? (
-            <div className={styles.userProfile}>
-              <img src={user.photoURL} alt={user.displayName} className={styles.userAvatar} />
-              <button className={styles.navCta} onClick={logout}>Logout</button>
-            </div>
-          ) : (
-            <Link href="/signup" className={styles.navCta}>Get Started</Link>
-          )}
         </div>
       </nav>
 
@@ -72,7 +63,7 @@ export default function Home() {
           </h1>
 
           <p className={styles.heroDescription}>
-            One platform for everything in campus — trade textbooks, find hostels,
+            One platform for everything campus — trade textbooks, find hostels,
             join study groups, access M-Pesa payments, and stay safe with
             emergency SOS. Built by students, for students.
           </p>
@@ -82,7 +73,7 @@ export default function Home() {
               <span className={styles.welcomeText}>Welcome back, {user.displayName}!</span>
             ) : (
               <>
-                <Link href="/signup" className={styles.btnPrimary}>Join the Waitlist</Link>
+                <Link href="/signup" className={styles.btnPrimary}>Get Started Today</Link>
                 <button className={styles.btnSecondary}>Learn More</button>
               </>
             )}
@@ -90,40 +81,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Feature Highlights */}
-      <section id="features" className={styles.features}>
-        <div className={styles.featureCard}>
-          <span className={styles.featureIcon}>🛒</span>
-          <h3 className={styles.featureTitle}>Comrade Market</h3>
-          <p className={styles.featureDesc}>
-            Buy & sell textbooks, find hostels, and discover student services.
-          </p>
-        </div>
 
-        <div className={styles.featureCard}>
-          <span className={styles.featureIcon}>📚</span>
-          <h3 className={styles.featureTitle}>Academic Hub</h3>
-          <p className={styles.featureDesc}>
-            Share past papers, find study groups, and connect with tutors.
-          </p>
-        </div>
-
-        <div className={styles.featureCard}>
-          <span className={styles.featureIcon}>🛡️</span>
-          <h3 className={styles.featureTitle}>Safety First</h3>
-          <p className={styles.featureDesc}>
-            One-tap Emergency SOS, anonymous reporting, and wellness support.
-          </p>
-        </div>
-
-        <div className={styles.featureCard}>
-          <span className={styles.featureIcon}>🎉</span>
-          <h3 className={styles.featureTitle}>Campus Life</h3>
-          <p className={styles.featureDesc}>
-            Events, lost & found, campus maps, and exclusive student deals.
-          </p>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className={styles.footer}>
