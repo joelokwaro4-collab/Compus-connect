@@ -1,5 +1,18 @@
 # Project Design Report: Campus Connect Kenya 🎓🇰🇪
 
+## Project Team: Group 5 (The Masterminds)
+- **Agnes Wairimu**
+- **Lewis Gitau**
+- **Randy Gakuu**
+- **Juliet Wanjiku**
+- **Bildad Shikutwa**
+- **Sharom Atieno**
+- **Rachel Murugi**
+- **Joel Okwaro**
+- **Victor Kimutai**
+
+
+
 ## 1. Executive Summary
 Campus Connect Kenya is a premium, mobile-first social and utility platform designed exclusively for university students in Kenya. It bridges the gap between academic life and campus commerce by providing a streamlined, high-trust environment for students to network, trade services, and access essential campus resources. Using a hybrid cloud architecture, the platform offers real-time connectivity and high-performance media sharing.
 
