@@ -197,9 +197,6 @@ export default function Profile() {
                                 <span>View</span>
                             </div>
                         </div>
-                        <div className={styles.uploadOverlay} onClick={() => fileInputRef.current.click()}>
-                            {uploading ? "Uploading..." : "Change Photo"}
-                        </div>
                     </div>
                     <input
                         type="file"
@@ -254,6 +251,19 @@ export default function Profile() {
                                     value={profile.bio}
                                     onChange={(e) => setProfile(prev => ({ ...prev, bio: e.target.value }))}
                                 />
+                            </div>
+
+                            <div className={styles.inputGroup}>
+                                <label className={styles.label}>Profile Photo</label>
+                                <button
+                                    type="button"
+                                    className={styles.editBtn}
+                                    style={{ width: 'fit-content' }}
+                                    onClick={() => fileInputRef.current.click()}
+                                    disabled={uploading}
+                                >
+                                    {uploading ? "Uploading..." : "Change Profile Photo"}
+                                </button>
                             </div>
 
                             <div className={styles.inputGroup}>
