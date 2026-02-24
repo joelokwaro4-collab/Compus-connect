@@ -1,15 +1,15 @@
 # Project Design Report: Campus Connect Kenya 🎓🇰🇪
 
 ## Project Team: Group 5 (The Masterminds)
-- **Agnes Wairimu**
-- **Lewis Gitau**
-- **Randy Gakuu**
-- **Juliet Wanjiku**
-- **Bildad Shikutwa**
-- **Sharom Atieno**
-- **Rachel Murugi**
-- **Joel Okwaro**
-- **Victor Kimutai**
+- **Agnes Wairimu__https://github.com/Aggie00**
+- **Lewis Gitau__https://github.com/vertigo0628**
+- **Randy Gakuu__https://github.com/mainoorandy-dot**
+- **Juliet Wanjiku__https://github.com/jullie-code**
+- **Bildad Shikutwa__https://github.com/Aluta857**
+- **Sharom Atieno__https://github.com/imali254**
+- **Rachel Murugi__https://github.com/raelkitonga015-art**
+- **Joel Okwaro__https://github.com/joelokwaro4-collab**
+- **Victor Kimutai__https://github.com/viktakimutai-hue**
 
 
 
