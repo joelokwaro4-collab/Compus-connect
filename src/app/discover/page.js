@@ -59,17 +59,6 @@ export default function DiscoverPage() {
 
     return (
         <div className={styles.discoverWrapper}>
-            {/* Minimal Nav */}
-            <nav style={{ position: 'absolute', top: 24, left: 24, right: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 10 }}>
-                <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: 'white' }}>
-                    <Logo size={24} />
-                    <span style={{ fontWeight: 'bold' }}>Campus Connect</span>
-                </Link>
-                {currentUser && (
-                    <Link href="/profile" style={{ color: 'var(--primary-light)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 600 }}>My Profile</Link>
-                )}
-            </nav>
-
             <div className={styles.container}>
                 <div className={styles.searchSection}>
                     <h1 className={styles.searchTitle}>Discover Comrades</h1>
@@ -107,11 +96,13 @@ export default function DiscoverPage() {
                                         />
                                         <h3 className={styles.name}>{profile.displayName}</h3>
 
-                                        <div className={styles.rating}>
-                                            <span className={styles.ratingStar}>⭐</span>
-                                            <span style={{ fontWeight: 600 }}>{profile.rating || 'New'}</span>
-                                            {profile.reviewCount > 0 && <span>({profile.reviewCount})</span>}
-                                        </div>
+                                        {profile.reviewCount > 0 && (
+                                            <div className={styles.rating}>
+                                                <span className={styles.ratingStar}>⭐</span>
+                                                <span style={{ fontWeight: 600 }}>{profile.rating}</span>
+                                                <span>({profile.reviewCount})</span>
+                                            </div>
+                                        )}
 
                                         {profile.services && profile.services.length > 0 && (
                                             <div className={styles.services}>

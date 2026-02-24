@@ -29,48 +29,6 @@ export default function Home() {
       <div className={styles.ambientOrb} />
       <div className={styles.ambientOrb} />
 
-      {/* Navigation */}
-      <nav className={`${styles.nav} ${isMenuOpen ? styles.navActive : ""}`}>
-        <div className={styles.navBrand}>
-          <Logo size={36} />
-          <div className={styles.navBrandText}>
-            <span className={styles.navTitle}>Campus Connect</span>
-            <span className={styles.navSubtitle}>Kenya</span>
-          </div>
-        </div>
-
-        {/* Hamburger Menu Button */}
-        <button
-          className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerActive : ""}`}
-          onClick={toggleMenu}
-          aria-label="Toggle Menu"
-        >
-          <span className={styles.hamburgerBar}></span>
-          <span className={styles.hamburgerBar}></span>
-          <span className={styles.hamburgerBar}></span>
-        </button>
-
-        <div className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksOpen : ""}`}>
-
-          {user ? (
-            <div className={styles.userProfile}>
-              <Link href="/discover" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>Discover</Link>
-              <button className={styles.navLink} onClick={goToDashboard}>Dashboard</button>
-              <Link href="/profile">
-                <img src={user.photoURL || "https://ui-avatars.com/api/?name=" + user.displayName} alt={user.displayName} className={styles.userAvatar} />
-              </Link>
-              <button className={styles.navCta} onClick={() => setIsLogoutModalOpen(true)}>Logout</button>
-            </div>
-          ) : (
-            <Link href="/signup" className={styles.navCta} onClick={() => setIsMenuOpen(false)}>Get Started</Link>
-          )}
-
-          {!user && (
-            <Link href="/login" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>Log In</Link>
-          )}
-        </div>
-      </nav>
-
       {/* Logout Confirmation Modal */}
       <LogoutModal
         isOpen={isLogoutModalOpen}

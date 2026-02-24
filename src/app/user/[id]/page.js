@@ -190,11 +190,13 @@ export default function PublicProfile({ params }) {
                             ))}
                         </div>
 
-                        <div className={styles.ratingContainer}>
-                            <span className={styles.star}>⭐</span>
-                            <span style={{ fontWeight: 600, color: 'white' }}>{profile.rating || 'New'}</span>
-                            {profile.reviewCount > 0 && <span>({profile.reviewCount} reviews)</span>}
-                        </div>
+                        {profile.reviewCount > 0 && (
+                            <div className={styles.ratingContainer}>
+                                <span className={styles.star}>⭐</span>
+                                <span style={{ fontWeight: 600, color: 'white' }}>{profile.rating}</span>
+                                <span>({profile.reviewCount} reviews)</span>
+                            </div>
+                        )}
                     </div>
                 </div>
             </header>

@@ -201,13 +201,6 @@ export default function Profile() {
                         >
                             View Public Profile
                         </button>
-                        <button
-                            className={styles.editBtn}
-                            style={{ background: 'var(--primary)', color: 'white', border: 'none' }}
-                            onClick={() => router.push(`/discover`)}
-                        >
-                            Discover Comrades
-                        </button>
                     </div>
 
                     <div className={styles.statsRow}>
@@ -301,11 +294,13 @@ export default function Profile() {
                                 ))}
                             </div>
 
-                            <div className={styles.ratingContainer}>
-                                <span className={styles.star}>⭐</span>
-                                <span style={{ fontWeight: 600, color: 'white' }}>{profile.rating || 'New'}</span>
-                                {profile.reviewCount > 0 && <span>({profile.reviewCount} reviews)</span>}
-                            </div>
+                            {profile.reviewCount > 0 && (
+                                <div className={styles.ratingContainer}>
+                                    <span className={styles.star}>⭐</span>
+                                    <span style={{ fontWeight: 600, color: 'white' }}>{profile.rating}</span>
+                                    <span>({profile.reviewCount} reviews)</span>
+                                </div>
+                            )}
                         </div>
                     )}
                 </div>
