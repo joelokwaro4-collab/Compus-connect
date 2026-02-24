@@ -33,7 +33,7 @@ Kenyan university students often lack a centralized, high-trust platform for:
 ### Goals & Success Metrics
 - **Goal:** Create the #1 trusted campus network in Kenya.
 - **Metrics:** 
-    - User growth within the `@students.must.ac.ke` domain.
+    - User growth within the `@students.must.ac.ke` domain and future expansion to other Kenyan universities.
     - Number of verified service reviews submitted.
     - Average session duration on the "Discover" hub.
 
@@ -108,7 +108,7 @@ A hybrid cloud approach where Firebase handles rapid metadata and auth, while Su
 4. **Phase 7**: Auth Flow Polish & Landing Page Optimization.
 
 ### Timeline
-- **Build Duration**: ~4-6 Weeks to stable MVP.
+- **Build Duration**: ~3-7 Weeks to stable MVP.
 
 ## 7. Testing & Deployment
 - **Testing**: Managed via Browser Subagents for automated UI validation.
