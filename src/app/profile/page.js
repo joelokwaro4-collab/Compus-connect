@@ -34,8 +34,22 @@ export default function Profile() {
     const galleryInputRef = useRef(null);
     const [mediaModal, setMediaModal] = useState({ isOpen: false, src: "", type: "image" });
 
-    const openMedia = (src, type = "image") => {
-        setMediaModal({ isOpen: true, src, type });
+    const isVideo = (url) => {
+        if (!url) return false;
+        try {
+            const cleanUrl = url.split('?')[0].toLowerCase();
+            return cleanUrl.endsWith('.mp4') || cleanUrl.endsWith('.mov') || cleanUrl.endsWith('.webm');
+        } catch (e) {
+            return false;
+        }
+    };
+
+    const openMedia = (src) => {
+        setMediaModal({
+            isOpen: true,
+            src,
+            type: isVideo(src) ? "video" : "image"
+        });
     };
 
     const closeMedia = () => {
@@ -237,6 +251,24 @@ export default function Profile() {
                     {isEditing ? (
                         <form onSubmit={handleUpdateProfile} className={styles.editForm}>
                             <div className={styles.inputGroup}>
+                                <label className={styles.label}>Profile Photo</label>
+                                <div className={styles.photoEditSection}>
+                                    <img
+                                        src={profile.photoURL || "https://ui-avatars.com/api/?name=" + (profile.displayName || user.email.split('@')[0])}
+                                        alt="Current Avatar"
+                                        className={styles.photoPreview}
+                                    />
+                                    <button
+                                        type="button"
+                                        className={styles.editBtn}
+                                        onClick={() => fileInputRef.current.click()}
+                                    >
+                                        {uploading ? "Uploading..." : "Change Photo"}
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className={styles.inputGroup}>
                                 <label className={styles.label}>Display Name</label>
                                 <input
                                     className={styles.input}
@@ -251,19 +283,6 @@ export default function Profile() {
                                     value={profile.bio}
                                     onChange={(e) => setProfile(prev => ({ ...prev, bio: e.target.value }))}
                                 />
-                            </div>
-
-                            <div className={styles.inputGroup}>
-                                <label className={styles.label}>Profile Photo</label>
-                                <button
-                                    type="button"
-                                    className={styles.editBtn}
-                                    style={{ width: 'fit-content' }}
-                                    onClick={() => fileInputRef.current.click()}
-                                    disabled={uploading}
-                                >
-                                    {uploading ? "Uploading..." : "Change Profile Photo"}
-                                </button>
                             </div>
 
                             <div className={styles.inputGroup}>
@@ -368,11 +387,11 @@ export default function Profile() {
 
                     <div className={styles.galleryGrid}>
                         {profile.gallery.map((img, i) => (
-                            <div key={i} className={styles.galleryItem} onClick={() => openMedia(img, img.endsWith('.mp4') || img.endsWith('.mov') ? 'video' : 'image')}>
-                                {img.endsWith('.mp4') || img.endsWith('.mov') ? (
-                                    <video src={img} className={styles.itemImage} />
+                            <div key={i} className={styles.galleryItem} onClick={() => openMedia(img)}>
+                                {isVideo(img) ? (
+                                    <video src={img} className={styles.itemImage} style={{ pointerEvents: 'none' }} />
                                 ) : (
-                                    <img src={img} alt={`Gallery ${i}`} className={styles.itemImage} />
+                                    <img src={img} alt={`Gallery ${i}`} className={styles.itemImage} style={{ pointerEvents: 'none' }} />
                                 )}
                                 <div className={styles.itemOverlay}>✨</div>
                             </div>

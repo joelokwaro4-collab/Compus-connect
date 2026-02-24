@@ -69,10 +69,10 @@ export default function Home() {
                 <Link href="/discover" className={styles.btnPrimary}>Discover Comrades</Link>
               </div>
             ) : (
-              <>
+              <div className={styles.heroCtas}>
                 <Link href="/signup" className={styles.btnPrimary}>Get Started Today</Link>
-                <button className={styles.btnSecondary}>Learn More</button>
-              </>
+                <Link href="/login" className={styles.btnSecondary}>Log In</Link>
+              </div>
             )}
           </div>
         </div>

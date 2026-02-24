@@ -9,12 +9,31 @@ export default function Navigation() {
     const pathname = usePathname();
     const { user } = useAuth();
 
-    // Hide navigation on login and signup pages if needed, 
-    // or keep it for easy access. Usually better to show for logged in users.
     const isAuthPage = pathname === "/login" || pathname === "/signup";
 
-    // We only show the full navigation for logged-in users to keep the experience premium
-    if (!user || isAuthPage) return null;
+    // Simplified navigation for unauthenticated users
+    if (!user) {
+        if (isAuthPage) return null;
+
+        return (
+            <nav className={styles.navContainer}>
+                <div className={styles.desktopNav}>
+                    <div className={styles.logoGroup}>
+                        <Link href="/" className={styles.logoLink}>
+                            <span className={styles.logoIcon}>🎓</span>
+                            <span className={styles.logoText}>Campus Connect</span>
+                        </Link>
+                    </div>
+                    <div className={styles.navLinks}>
+                        <Link href="/login" className={styles.navLink}>Log In</Link>
+                        <Link href="/signup" className={styles.navBtn}>Sign Up</Link>
+                    </div>
+                </div>
+            </nav>
+        );
+    }
+
+    if (isAuthPage) return null;
 
     const navItems = [
         { label: "Home", path: "/", icon: "🏠" },

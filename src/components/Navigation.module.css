@@ -60,6 +60,23 @@
     background: rgba(255, 255, 255, 0.05);
 }
 
+.navBtn {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 102, 51, 0.3);
+}
+
+.navBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 51, 0.4);
+    opacity: 0.9;
+}
+
 .active {
     color: var(--primary-light) !important;
 }

@@ -31,8 +31,22 @@ export default function PublicProfile({ params }) {
     // Media View State
     const [mediaModal, setMediaModal] = useState({ isOpen: false, src: "", type: "image" });
 
-    const openMedia = (src, type = "image") => {
-        setMediaModal({ isOpen: true, src, type });
+    const isVideo = (url) => {
+        if (!url) return false;
+        try {
+            const cleanUrl = url.split('?')[0].toLowerCase();
+            return cleanUrl.endsWith('.mp4') || cleanUrl.endsWith('.mov') || cleanUrl.endsWith('.webm');
+        } catch (e) {
+            return false;
+        }
+    };
+
+    const openMedia = (src) => {
+        setMediaModal({
+            isOpen: true,
+            src,
+            type: isVideo(src) ? "video" : "image"
+        });
     };
 
     const closeMedia = () => {
@@ -229,11 +243,11 @@ export default function PublicProfile({ params }) {
                 <div className={styles.galleryContent}>
                     <div className={styles.galleryGrid}>
                         {profile.gallery?.map((img, i) => (
-                            <div key={i} className={styles.galleryItem} style={{ cursor: 'pointer' }} onClick={() => openMedia(img, img.endsWith('.mp4') || img.endsWith('.mov') ? 'video' : 'image')}>
-                                {img.endsWith('.mp4') || img.endsWith('.mov') ? (
-                                    <video src={img} className={styles.itemImage} muted />
+                            <div key={i} className={styles.galleryItem} style={{ cursor: 'pointer' }} onClick={() => openMedia(img)}>
+                                {isVideo(img) ? (
+                                    <video src={img} className={styles.itemImage} muted style={{ pointerEvents: 'none' }} />
                                 ) : (
-                                    <img src={img} alt={`Gallery ${i}`} className={styles.itemImage} />
+                                    <img src={img} alt={`Gallery ${i}`} className={styles.itemImage} style={{ pointerEvents: 'none' }} />
                                 )}
                             </div>
                         ))}
