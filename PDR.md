@@ -119,3 +119,9 @@ A hybrid cloud approach where Firebase handles rapid metadata and auth, while Su
 - **Mitigation**: Implement image compression and Supabase storage quotas.
 - **Risk**: Malicious reviews.
 - **Mitigation**: Restrict reviews to logged-in students with unique account verification.
+
+## 9. Systems Thinking & Ecosystem Design
+Taking a holistic approach, Campus Connect is designed as a fully integrated digital ecosystem rather than a collection of isolated features. Applying systems thinking principles, we recognize that:
+- **Trust is a Core Driver:** Security measures (e.g., `.ac.ke` email verification, student moderation) are not mere support functions; they are the foundational drivers that legitimize peer-to-peer commerce.
+- **Stakeholder Synergy:** The platform integrates the needs of diverse stakeholders—students, administration, campus security, and local vendors—creating a self-sustaining network of value.
+- **Proactive Safety Integration:** By embedding the anonymous "Sema" portal and real-time Emergency SOS directly within the social space, we elevate campus wellness from a reactive administrative task to a proactive driver of user engagement.
